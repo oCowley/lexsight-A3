@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { FileSearch, Calendar, DollarSign, Users, FileText, CheckCircle2 } from 'lucide-react';
 import { obterAnaliseAtual, obterAnalisePorId } from '../../utils/storage';
 import type { Analise } from '../../utils/storage';
 import styles from './page.module.css';
 
-export default function ExtracaoPage() {
+function ExtracaoContent() {
   const searchParams = useSearchParams();
   const [analise, setAnalise] = useState<Analise | null>(null);
 
@@ -135,6 +135,21 @@ export default function ExtracaoPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ExtracaoPage() {
+  return (
+    <Suspense fallback={
+      <div className={styles.extracaoPage}>
+        <div className={styles.header}>
+          <h1>Extração Automática de Informações</h1>
+          <p>Carregando...</p>
+        </div>
+      </div>
+    }>
+      <ExtracaoContent />
+    </Suspense>
   );
 }
 

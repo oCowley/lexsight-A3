@@ -23,8 +23,12 @@ export default function ComparacaoPage() {
     }
   };
 
-  const compararRiscos = () => {
-    if (!analise1 || !analise2) return [];
+  const compararRiscos = (): {
+    apenas1: Array<{ tipo: 'alto' | 'medio' | 'baixo'; titulo: string; descricao: string; localizacao: string; recomendacao: string; justificativa?: string }>;
+    apenas2: Array<{ tipo: 'alto' | 'medio' | 'baixo'; titulo: string; descricao: string; localizacao: string; recomendacao: string; justificativa?: string }>;
+    comuns: Array<{ tipo: 'alto' | 'medio' | 'baixo'; titulo: string; descricao: string; localizacao: string; recomendacao: string; justificativa?: string }>;
+  } | null => {
+    if (!analise1 || !analise2) return null;
 
     const riscos1 = analise1.riscos.map(r => r.titulo);
     const riscos2 = analise2.riscos.map(r => r.titulo);
@@ -34,9 +38,9 @@ export default function ComparacaoPage() {
     const comuns = riscos1.filter(r => riscos2.includes(r));
 
     return {
-      apenas1: apenas1.map(titulo => analise1.riscos.find(r => r.titulo === titulo)!),
-      apenas2: apenas2.map(titulo => analise2.riscos.find(r => r.titulo === titulo)!),
-      comuns: comuns.map(titulo => analise1.riscos.find(r => r.titulo === titulo)!)
+      apenas1: apenas1.map(titulo => analise1!.riscos.find(r => r.titulo === titulo)!).filter(Boolean),
+      apenas2: apenas2.map(titulo => analise2!.riscos.find(r => r.titulo === titulo)!).filter(Boolean),
+      comuns: comuns.map(titulo => analise1!.riscos.find(r => r.titulo === titulo)!).filter(Boolean)
     };
   };
 
@@ -206,7 +210,7 @@ export default function ComparacaoPage() {
             <div className={styles.riscosComparacao}>
               <h3>Comparação de Riscos</h3>
 
-              {diferencas.apenas1.length > 0 && (
+              {diferencas.apenas1 && diferencas.apenas1.length > 0 && (
                 <div className={styles.riscosSection}>
                   <h4>
                     <Minus size={18} />
@@ -224,7 +228,7 @@ export default function ComparacaoPage() {
                 </div>
               )}
 
-              {diferencas.comuns.length > 0 && (
+              {diferencas.comuns && diferencas.comuns.length > 0 && (
                 <div className={styles.riscosSection}>
                   <h4>
                     <CheckCircle2 size={18} />
@@ -242,7 +246,7 @@ export default function ComparacaoPage() {
                 </div>
               )}
 
-              {diferencas.apenas2.length > 0 && (
+              {diferencas.apenas2 && diferencas.apenas2.length > 0 && (
                 <div className={styles.riscosSection}>
                   <h4>
                     <Plus size={18} />

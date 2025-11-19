@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { FileText, Sparkles, Clock, Users, DollarSign } from 'lucide-react';
 import { obterAnaliseAtual, obterAnalisePorId } from '../../utils/storage';
 import type { Analise } from '../../utils/storage';
 import styles from './page.module.css';
 
-export default function ResumoPage() {
+function ResumoContent() {
   const searchParams = useSearchParams();
   const [analise, setAnalise] = useState<Analise | null>(null);
 
@@ -95,7 +95,9 @@ export default function ResumoPage() {
         <h2 className={styles.sectionTitle}>Principais Pontos</h2>
         <div className={styles.pontosGrid}>
           {resumo.pontosPrincipais.map((ponto, index) => {
-            const iconName = typeof ponto.icone === 'string' ? ponto.icone : (ponto.icone?.name || 'FileText');
+            const iconName = ponto.icone && typeof ponto.icone === 'string' 
+              ? ponto.icone 
+              : 'FileText';
             const Icon = iconMap[iconName] || FileText;
             return (
               <div key={index} className={styles.pontoCard}>
@@ -127,6 +129,28 @@ export default function ResumoPage() {
         <p>Este resumo foi gerado automaticamente por IA e deve ser revisado por um profissional qualificado.</p>
       </div>
     </div>
+  );
+}
+
+export default function ResumoPage() {
+  return (
+    <Suspense fallback={
+      <div className={styles.resumoPage}>
+        <div className={styles.header}>
+          <div className={styles.headerContent}>
+            <div className={styles.headerIcon}>
+              <Sparkles size={32} />
+            </div>
+            <div>
+              <h1>Resumo Automático do Documento</h1>
+              <p>Carregando...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    }>
+      <ResumoContent />
+    </Suspense>
   );
 }
 

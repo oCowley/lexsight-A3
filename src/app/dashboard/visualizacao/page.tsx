@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Eye, FileText, AlertTriangle, Sparkles, FileSearch, Highlighter, ChevronRight, DollarSign } from 'lucide-react';
 import { obterAnaliseAtual, obterAnalisePorId, definirAnaliseAtual } from '../../utils/storage';
@@ -8,7 +8,7 @@ import type { Analise } from '../../utils/storage';
 import ExplanationPopup from '../../components/ExplanationPopup';
 import styles from './page.module.css';
 
-export default function VisualizacaoPage() {
+function VisualizacaoContent() {
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<'documento' | 'destaques' | 'insights'>('documento');
   const [analise, setAnalise] = useState<Analise | null>(null);
@@ -229,6 +229,21 @@ CLÁUSULA SEXTA - DA CONFIDENCIALIDADE
         )}
       </div>
     </div>
+  );
+}
+
+export default function VisualizacaoPage() {
+  return (
+    <Suspense fallback={
+      <div className={styles.visualizacaoPage}>
+        <div className={styles.header}>
+          <h1>Visualização da Análise</h1>
+          <p>Carregando...</p>
+        </div>
+      </div>
+    }>
+      <VisualizacaoContent />
+    </Suspense>
   );
 }
 

@@ -20,7 +20,7 @@ export interface Analise {
   resumo: {
     titulo: string;
     resumoCurto: string;
-    pontosPrincipais: Array<{ titulo: string; descricao: string }>;
+    pontosPrincipais: Array<{ icone?: string; titulo: string; descricao: string }>;
     observacoes: string[];
   };
   documento: {

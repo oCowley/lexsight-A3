@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { AlertTriangle, AlertCircle, Info, XCircle } from 'lucide-react';
 import { obterAnaliseAtual, obterAnalisePorId } from '../../utils/storage';
@@ -8,7 +8,7 @@ import type { Analise } from '../../utils/storage';
 import ExplanationPopup from '../../components/ExplanationPopup';
 import styles from './page.module.css';
 
-export default function RiscosPage() {
+function RiscosContent() {
   const searchParams = useSearchParams();
   const [analise, setAnalise] = useState<Analise | null>(null);
 
@@ -184,6 +184,21 @@ export default function RiscosPage() {
         })}
       </div>
     </div>
+  );
+}
+
+export default function RiscosPage() {
+  return (
+    <Suspense fallback={
+      <div className={styles.riscosPage}>
+        <div className={styles.header}>
+          <h1>Identificação de Riscos e Inconsistências</h1>
+          <p>Carregando...</p>
+        </div>
+      </div>
+    }>
+      <RiscosContent />
+    </Suspense>
   );
 }
 
