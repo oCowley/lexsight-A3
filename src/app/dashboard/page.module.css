@@ -1,0 +1,234 @@
+.dashboardPage {
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--foreground), var(--gray-lighter));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header p {
+  color: var(--gray-lighter);
+  font-size: 18px;
+}
+
+.quickActions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.actionCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.actionCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue-primary);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.2);
+}
+
+.actionCard svg {
+  color: var(--blue-accent);
+}
+
+.actionCard h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.actionCard p {
+  color: var(--gray-lighter);
+  margin: 0;
+  font-size: 14px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.statCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s;
+}
+
+.statCard:hover {
+  border-color: var(--blue-primary);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+}
+
+.statIcon {
+  width: 56px;
+  height: 56px;
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-accent);
+  flex-shrink: 0;
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statNumber {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--blue-primary), var(--blue-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statLabel {
+  color: var(--gray-lighter);
+  font-size: 14px;
+}
+
+.recentAnalises {
+  margin-top: 60px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.sectionHeader svg {
+  color: var(--blue-accent);
+}
+
+.sectionHeader h2 {
+  font-size: 24px;
+  font-weight: 700;
+  flex: 1;
+  margin: 0;
+}
+
+.verTodas {
+  color: var(--blue-accent);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.verTodas:hover {
+  color: var(--blue-primary);
+}
+
+.analisesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.analiseCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.analiseCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue-primary);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.2);
+}
+
+.analiseHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.analiseHeader svg {
+  color: var(--blue-accent);
+  flex-shrink: 0;
+}
+
+.analiseHeader h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.anonimizadoBadge {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--blue-accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.analiseInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--gray-lighter);
+}
+
+@media (max-width: 768px) {
+  .dashboardPage {
+    padding: 24px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .analisesList {
+    grid-template-columns: 1fr;
+  }
+}
+

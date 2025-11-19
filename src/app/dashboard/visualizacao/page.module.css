@@ -1,0 +1,265 @@
+.visualizacaoPage {
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--foreground), var(--gray-lighter));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header p {
+  color: var(--gray-lighter);
+  font-size: 18px;
+}
+
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 24px;
+  color: var(--gray-lighter);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: -1px;
+}
+
+.tab:hover {
+  color: var(--foreground);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.tab.active {
+  color: var(--blue-accent);
+  border-bottom-color: var(--blue-primary);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.content {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  min-height: 600px;
+}
+
+.documentoView,
+.destaquesView,
+.insightsView {
+  height: 100%;
+}
+
+.documentoHeader,
+.destaquesHeader,
+.insightsHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.documentoHeader svg,
+.destaquesHeader svg,
+.insightsHeader svg {
+  color: var(--blue-accent);
+}
+
+.documentoHeader h2,
+.destaquesHeader h2,
+.insightsHeader h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.documentoTexto {
+  line-height: 1.8;
+  color: var(--foreground);
+  font-size: 16px;
+}
+
+.documentoTexto p {
+  margin: 0 0 16px 0;
+}
+
+.destaquesList,
+.insightsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.destaqueCard {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+.destaqueCard:hover {
+  border-color: var(--blue-primary);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+}
+
+.destaqueHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.destaqueBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--blue-accent);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.destaquePagina {
+  color: var(--gray-lighter);
+  font-size: 14px;
+}
+
+.destaqueTexto {
+  color: var(--foreground);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 12px 0;
+  padding: 12px;
+  background: rgba(37, 99, 235, 0.05);
+  border-left: 3px solid var(--blue-primary);
+  border-radius: 4px;
+}
+
+.destaqueLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--blue-accent);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.destaqueLink:hover {
+  color: var(--blue-primary);
+}
+
+.justificativa {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.insightCard {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+.insightCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+}
+
+.insightCard.info {
+  border-left: 4px solid var(--blue-primary);
+}
+
+.insightCard.alerta {
+  border-left: 4px solid #f59e0b;
+}
+
+.insightCard.sucesso {
+  border-left: 4px solid #22c55e;
+}
+
+.insightHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.insightHeader svg {
+  color: var(--blue-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.insightHeader h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.insightRelevancia {
+  display: inline-block;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--blue-accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.insightCard p {
+  color: var(--gray-lighter);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .visualizacaoPage {
+    padding: 24px;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .content {
+    padding: 24px;
+  }
+}
+

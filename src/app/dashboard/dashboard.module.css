@@ -1,0 +1,22 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background);
+  position: relative;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: var(--sidebar-width, 280px);
+  transition: margin-left 0.3s ease;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+@media (max-width: 968px) {
+  .mainContent {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+}
+

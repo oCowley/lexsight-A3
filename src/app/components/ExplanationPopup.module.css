@@ -1,0 +1,90 @@
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.infoIcon {
+  color: var(--blue-accent);
+  transition: color 0.2s;
+}
+
+.trigger:hover .infoIcon {
+  color: var(--blue-primary);
+}
+
+.popup {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 280px;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.popupHeader h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--blue-accent);
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: var(--gray-lighter);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background: var(--gray-medium);
+  color: var(--foreground);
+}
+
+.popup p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--gray-lighter);
+  margin: 0;
+}
+
